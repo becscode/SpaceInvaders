@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://mtb03pq7rbbl"]
+
+[ext_resource type="PackedScene" uid="uid://uqgk0dwpmw11" path="res://cenas/jogador.tscn" id="1_t4ukd"]
+[ext_resource type="Texture2D" uid="uid://c7rvgkjr55qn" path="res://sprites/alien1.png" id="2_t4ukd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6g87"]
+size = Vector2(11, 8)
+
+[sub_resource type="Animation" id="Animation_t4ukd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_4fhxt"]
+resource_name = "destroy"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_b30p5"]
+resource_name = "lives"
+length = 0.8666667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.43333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5wwvk"]
+_data = {
+&"RESET": SubResource("Animation_t4ukd"),
+&"destroy": SubResource("Animation_4fhxt"),
+&"lives": SubResource("Animation_b30p5")
+}
+
+[node name="main" type="Node" unique_id=1991001426]
+
+[node name="jogador" parent="." unique_id=634589377 instance=ExtResource("1_t4ukd")]
+position = Vector2(-1, -1)
+
+[node name="alien" type="CharacterBody2D" parent="." unique_id=1091565000]
+
+[node name="Sprite2D" type="Sprite2D" parent="alien" unique_id=686784319]
+position = Vector2(13, 11)
+texture = ExtResource("2_t4ukd")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="alien" unique_id=804185369]
+position = Vector2(13, 11)
+shape = SubResource("RectangleShape2D_w6g87")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="alien" unique_id=1526781984]
+libraries/ = SubResource("AnimationLibrary_5wwvk")
+autoplay = &"lives"

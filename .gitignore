@@ -1,0 +1,13 @@
+# Arquivos gerados pelo Godot
+.godot/
+.import/
+export_presets.cfg
+
+# Arquivos específicos de build (se houver)
+android/
+build/
+
+# Arquivos do sistema ou caches
+.DS_Store
+*.tmp
+

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bmnrs2c23s8kx"]
+
+[ext_resource type="Script" uid="uid://lmky34hrxfpr" path="res://cenas/Laser.gd" id="1_o44x0"]
+[ext_resource type="Texture2D" uid="uid://dosrxld5alxbd" path="res://sprites/disparoJugador.png" id="1_tpoq1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sotct"]
+size = Vector2(1, 7)
+
+[node name="Area2D" type="Area2D" unique_id=577137790]
+script = ExtResource("1_o44x0")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=955090743]
+position = Vector2(0, -3.5)
+texture = ExtResource("1_tpoq1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=667050320]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_sotct")

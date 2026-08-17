@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://uqgk0dwpmw11"]
+
+[ext_resource type="Script" uid="uid://b325xcnvonrs" path="res://cenas/jogador.gd" id="1_p7t4r"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t4ukd"]
+load_path = "res://.godot/imported/jugador.png-dd8882bcd5fc11bb845633546f119192.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sotct"]
+size = Vector2(15, 6)
+
+[node name="jogador" type="CharacterBody2D" unique_id=634589377]
+position = Vector2(0, 6)
+script = ExtResource("1_p7t4r")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=220113818]
+texture = SubResource("CompressedTexture2D_t4ukd")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1918581836]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_sotct")
+
+[node name="PontoDoLaser" type="Marker2D" parent="." unique_id=444521755]
+position = Vector2(0, -5)
